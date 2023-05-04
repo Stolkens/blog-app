@@ -1,8 +1,9 @@
+import PageTitle from "../../views/PageTitle/PageTitle"
 
 
 const EditPost = () => {
   return (
-    <div>EditPost</div>
+    <PageTitle>Edit post</PageTitle>
   )
 };
 

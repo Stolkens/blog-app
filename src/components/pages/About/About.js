@@ -1,7 +1,8 @@
+import PageTitle from "../../views/PageTitle/PageTitle"
 
 const About = () => {
   return (
-    <div>About</div>
+    <PageTitle>About</PageTitle>
   )
 };
 

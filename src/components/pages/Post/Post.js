@@ -1,8 +1,8 @@
-
+import PageTitle from "../../views/PageTitle/PageTitle";
 
 const Post = () => {
   return (
-    <div>Post</div>
+    <PageTitle>Post</PageTitle>
   )
 };
 

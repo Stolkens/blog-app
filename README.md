@@ -1,3 +1,3 @@
 # blog-app
 
-https://replit.com/@MaciejStolkens/blog-app
+https://blog-app.maciejstolkens.repl.co

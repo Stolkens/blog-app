@@ -38,7 +38,7 @@ const Post = () => {
         <h4>{postData.title}</h4>
         <p><strong>Author: </strong>{postData.author}</p>
         <p><strong>Published: </strong>{postData.publisheDate}</p>
-        <p>{postData.content}</p>
+        <p dangerouslySetInnerHTML={{ __html: postData.content }}></p>
       </div>
       <div>
         <Link to={"/post/edit/" + id}><Button variant="outline-info">Edit</Button></Link>

@@ -6,7 +6,7 @@ const inisialState = {
       author: 'Maksymilian Owieczka',
       shortDescription: 'Czy wiesz, że to...',
       content: 'habla habla co tam powiesz mi ze tego tego i tamtego',
-      publisheDate: '02-03-2021',
+      publisheDate: new Date('02-03-2021'),
     },
     {
       id:'2',
@@ -14,7 +14,7 @@ const inisialState = {
       author: 'Maja Kupka',
       shortDescription: 'Pomimo, że nie idzie....',
       content: 'habla habla co tam powiesz mi ze tego tego i tamtego',
-      publisheDate: '04-01-2022',
+      publisheDate: new Date('04-01-2022'),
     },
     {
       id:'3',
@@ -22,7 +22,7 @@ const inisialState = {
       author: 'Gerwazy Jajko',
       shortDescription: 'Coś tam się jednak dzieje...',
       content: 'habla habla co tam powiesz mi ze tego tego i tamtego',
-      publisheDate: '05-07-2021',
+      publisheDate: new Date('05-07-2021'),
     }
   ]
 

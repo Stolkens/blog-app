@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { editPost } from '../../../redux/postsRedux';
 import { Navigate } from 'react-router-dom';
+import DateToStr from '../../../utils/dateToStr';
 
 const EditPostForm = () => {
 
@@ -25,7 +26,7 @@ const EditPostForm = () => {
     <PostForm action={handleSubmit} actionText='Save changes' 
     title={postData.title} 
     author={postData.author} 
-    shortDescription={postData.shortDescription} 
+    shortDescription={ postData.shortDescription} 
     publisheDate={postData.publisheDate} 
     content={postData.content}/>
   )

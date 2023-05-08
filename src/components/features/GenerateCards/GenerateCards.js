@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import { Col } from "react-bootstrap";
 import { getPosts } from "../../../redux/postsRedux";
 import { Link } from "react-router-dom";
+import dateToStr from "../../../utils/dateToStr";
 
 const GenerateCards = () => {
 
@@ -18,7 +19,7 @@ const GenerateCards = () => {
             <Card.Body >
               <Card.Title>{post.title}</Card.Title>
               <Card.Subtitle>Author: {post.author}</Card.Subtitle>
-              <Card.Text>Published: {post.publisheDate}</Card.Text>
+              <Card.Text>Published: {dateToStr(post.publisheDate)}</Card.Text>
               <Card.Text>
                 {post.shortDescription}
               </Card.Text>

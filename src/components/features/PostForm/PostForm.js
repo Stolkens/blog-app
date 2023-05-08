@@ -3,12 +3,17 @@ import { Button } from 'react-bootstrap';
 import { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import en from 'date-fns/locale/es';
+registerLocale('en', en)
 
 const PostForm = ({action, actionText, ...props}) => {
 
   const [title, setTitle] = useState(props.title || '');
   const [author, setAuthor] = useState(props.author || '');
-  const [publisheDate, setPublisheDate] = useState(props.publisheDate || '');
+  const [publisheDate, setPublisheDate] = useState(new Date() || '');
   const [shortDescription, setShortDescription] = useState(props.shortDescription || '');
   const [content, setContent] = useState(props.content || '');
   // const [value, setValue] = useState ('');
@@ -26,7 +31,7 @@ const PostForm = ({action, actionText, ...props}) => {
         <Form.Label>Author</Form.Label>
         <Form.Control type="text" value={author} placeholder="Enter author" onChange={e=>setAuthor(e.target.value)}/>
         <Form.Label>Published</Form.Label>
-        <Form.Control type="text" value={publisheDate} placeholder="Enter date" onChange={e=>setPublisheDate(e.target.value)}/>
+        <DatePicker  locale="en" selected={publisheDate} onChange={date=>setPublisheDate(date)}/>
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label>Short description</Form.Label>

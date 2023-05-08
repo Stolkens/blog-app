@@ -8,6 +8,7 @@ import { Modal } from "react-bootstrap";
 import { useState } from "react";
 import { removePost } from "../../../redux/postsRedux";
 import { Navigate } from "react-router-dom";
+import dateToStr from "../../../utils/dateToStr";
 
 const Post = () => {
 
@@ -37,7 +38,7 @@ const Post = () => {
       <div>
         <h4>{postData.title}</h4>
         <p><strong>Author: </strong>{postData.author}</p>
-        <p><strong>Published: </strong>{postData.publisheDate}</p>
+        <p><strong>Published: </strong>{dateToStr(postData.publisheDate)}</p>
         <p dangerouslySetInnerHTML={{ __html: postData.content }}></p>
       </div>
       <div>

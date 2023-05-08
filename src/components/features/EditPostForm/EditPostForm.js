@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { editPost } from '../../../redux/postsRedux';
 import { Navigate } from 'react-router-dom';
-import DateToStr from '../../../utils/dateToStr';
 
 const EditPostForm = () => {
 

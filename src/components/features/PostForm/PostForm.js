@@ -5,13 +5,16 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { registerLocale } from  "react-datepicker";
 import { useForm } from 'react-hook-form';
-import en from 'date-fns/locale/es';
-registerLocale('en', en)
+import { getCategories } from '../../../redux/categoriesRedux';
+import { useSelector } from 'react-redux';
 
 
 const PostForm = ({action, actionText, ...props}) => {
+
+  
+  
+  const categories = useSelector(getCategories);
 
   const { register, handleSubmit: validate, formState: { errors } } = useForm();
 
@@ -23,10 +26,25 @@ const PostForm = ({action, actionText, ...props}) => {
   const [contentError, setContentError] = useState(false);
   const [dateError, setDateError] = useState(false);
 
+  //TODO: FILTRACJA REACT-QUILL
+  
   const handleSubmit = (e) => {
-    setContentError(!content)
+    const stringsArray = ['<br>', '<p>', '</p>'];
+
+  const removeStringsFromArray=(string, array)=> {  //filtowanie contentu po edycji
+    let result = string;
+    array.forEach(str => { 
+      result = result.replace(str, '');
+    });
+    return result;
+  }
+
+  const filteredContent = removeStringsFromArray(content, stringsArray);
+    
+    setContentError(!filteredContent)
     setDateError(!publisheDate)
-    if(content && publisheDate){
+   
+    if(filteredContent && publisheDate){
     action({title, author, publisheDate, shortDescription, content});
   }
 };
@@ -50,9 +68,16 @@ const PostForm = ({action, actionText, ...props}) => {
         {errors.author?.type==='required' && <small className="d-block form-text text-danger mt-2">This field is required</small>}
         {errors.author?.type==='minLength' && <small className="d-block form-text text-danger mt-2">min. 4 characters</small>}
         <Form.Label>Published</Form.Label>
-        <DatePicker  locale="en" selected={publisheDate} onChange={date=>setPublisheDate(date)}/>
+        <DatePicker selected={publisheDate} onChange={date=>setPublisheDate(date)}/>
         {dateError && <small className="d-block form-text text-danger mt-2">This field is required</small>}
       </Form.Group>
+      <Form.Label>Category</Form.Label>
+      <Form.Select aria-label="categories-select">
+      <option>Select category</option>
+      {categories.map(option => (
+          <option key={option} value={option}>{option}</option>
+        ))}
+    </Form.Select>
       <Form.Group className="mb-3">
         <Form.Label>Short description</Form.Label>
         <Form.Control 

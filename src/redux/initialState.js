@@ -24,6 +24,11 @@ const inisialState = {
       content: 'habla habla co tam powiesz mi ze tego tego i tamtego',
       publisheDate: new Date('05-07-2021'),
     }
+  ],
+  categories:[
+    'Sport', 
+    'News', 
+    'Movies'
   ]
 
 };

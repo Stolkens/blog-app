@@ -2,9 +2,11 @@ import { combineReducers } from 'redux';
 import { legacy_createStore as createStore} from 'redux'
 import initialState from './initialState';
 import postsReducer from './postsRedux';
+import categoriesReducer from './categoriesRedux';
 
 const subreducers = {
   posts: postsReducer,
+  categories: categoriesReducer,
 }
 
 const reducer = combineReducers(subreducers);

@@ -8,6 +8,7 @@ import { editPost } from '../../../redux/postsRedux';
 import { Navigate } from 'react-router-dom';
 
 const EditPostForm = () => {
+  
 
   const { id } = useParams();
   const postData = useSelector(state=>getPostById(state, id)) 

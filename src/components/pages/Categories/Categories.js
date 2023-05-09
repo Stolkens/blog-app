@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { getCategories } from "../../../redux/categoriesRedux";
+import { ListGroup } from "react-bootstrap";
 
 
 
@@ -7,13 +8,12 @@ import { getCategories } from "../../../redux/categoriesRedux";
  const Categories = () => {
 
   const categories = useSelector(getCategories)
-  const category = categories.map(category => category)
-  console.log (category)
-  return (
-    <div>
 
+  return (
+    <ListGroup>
+      {categories.map(category=><ListGroup.Item key={category}>{category}</ListGroup.Item>)}
   
-    </div>
+    </ListGroup>
   )
  };
 

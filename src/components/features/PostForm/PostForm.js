@@ -10,10 +10,8 @@ import { getCategories } from '../../../redux/categoriesRedux';
 import { useSelector } from 'react-redux';
 
 
-const PostForm = ({action, actionText, ...props}) => {
+const PostForm = ({onCategoryChange,  action, actionText, ...props}) => {
 
-  
-  
   const categories = useSelector(getCategories);
 
   const { register, handleSubmit: validate, formState: { errors } } = useForm();
@@ -25,10 +23,9 @@ const PostForm = ({action, actionText, ...props}) => {
   const [content, setContent] = useState(props.content || '');
   const [contentError, setContentError] = useState(false);
   const [dateError, setDateError] = useState(false);
-
-  //TODO: FILTRACJA REACT-QUILL
+  const [category, SetCategory] = useState(props.category || '')
   
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     const stringsArray = ['<br>', '<p>', '</p>'];
 
   const removeStringsFromArray=(string, array)=> {  //filtowanie contentu po edycji
@@ -43,9 +40,9 @@ const PostForm = ({action, actionText, ...props}) => {
     
     setContentError(!filteredContent)
     setDateError(!publisheDate)
-   
     if(filteredContent && publisheDate){
-    action({title, author, publisheDate, shortDescription, content});
+    action({title, author, publisheDate, shortDescription, content, category});
+    SetCategory(category)
   }
 };
 
@@ -72,10 +69,10 @@ const PostForm = ({action, actionText, ...props}) => {
         {dateError && <small className="d-block form-text text-danger mt-2">This field is required</small>}
       </Form.Group>
       <Form.Label>Category</Form.Label>
-      <Form.Select aria-label="categories-select">
+      <Form.Select aria-label="categories-select" onChange={(e) => SetCategory(e.target.value)}>
       <option>Select category</option>
-      {categories.map(option => (
-          <option key={option} value={option}>{option}</option>
+      {categories.map(category => (
+          <option key={category} value={category}>{category}</option>
         ))}
     </Form.Select>
       <Form.Group className="mb-3">

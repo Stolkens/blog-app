@@ -39,6 +39,7 @@ const Post = () => {
         <h4>{postData.title}</h4>
         <p><strong>Author: </strong>{postData.author}</p>
         <p><strong>Published: </strong>{dateToStr(postData.publisheDate)}</p>
+        <p><strong>Category: </strong>{postData.category}</p>
         <p dangerouslySetInnerHTML={{ __html: postData.content }}></p>
       </div>
       <div>

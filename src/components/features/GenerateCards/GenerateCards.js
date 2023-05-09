@@ -9,7 +9,7 @@ import dateToStr from "../../../utils/dateToStr";
 
 const GenerateCards = () => {
 
-  const posts = useSelector(getPosts);
+  const posts = useSelector(getPosts)
 
   return (
     <Row xs={1} md={2} lg={3}>
@@ -20,6 +20,7 @@ const GenerateCards = () => {
               <Card.Title>{post.title}</Card.Title>
               <Card.Subtitle>Author: {post.author}</Card.Subtitle>
               <Card.Text>Published: {dateToStr(post.publisheDate)}</Card.Text>
+              <Card.Text>Category: {post.category} </Card.Text>
               <Card.Text>
                 {post.shortDescription}
               </Card.Text>

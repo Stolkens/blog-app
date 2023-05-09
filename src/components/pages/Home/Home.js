@@ -6,7 +6,6 @@ import styles from './Home.module.scss';
 
 const Home = () => {
  
-
   return (
     <div className="container px-0">
       <div className={styles.title}>

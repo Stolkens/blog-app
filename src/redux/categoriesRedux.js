@@ -1,6 +1,7 @@
 
 //selectors
 export const getCategories = (state) => state.categories;
+export const getCategoryPostValue = ({categories}, categoryId) => categories.find(category=>category.id===categoryId)
 
 
 // actions

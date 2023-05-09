@@ -7,6 +7,7 @@ const inisialState = {
       shortDescription: 'Czy wiesz, że to...',
       content: 'habla habla co tam powiesz mi ze tego tego i tamtego',
       publisheDate: new Date('02-03-2021'),
+      category: 'Sport'
     },
     {
       id:'2',
@@ -15,6 +16,7 @@ const inisialState = {
       shortDescription: 'Pomimo, że nie idzie....',
       content: 'habla habla co tam powiesz mi ze tego tego i tamtego',
       publisheDate: new Date('04-01-2022'),
+      category: 'News'
     },
     {
       id:'3',
@@ -23,6 +25,7 @@ const inisialState = {
       shortDescription: 'Coś tam się jednak dzieje...',
       content: 'habla habla co tam powiesz mi ze tego tego i tamtego',
       publisheDate: new Date('05-07-2021'),
+      category: 'Movies'
     }
   ],
   categories:[

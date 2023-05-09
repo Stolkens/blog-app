@@ -28,7 +28,9 @@ const EditPostForm = () => {
     author={postData.author} 
     shortDescription={ postData.shortDescription} 
     publisheDate={postData.publisheDate} 
-    content={postData.content}/>
+    content={postData.content}
+    category={postData.category}/>
+    
   )
 };
 

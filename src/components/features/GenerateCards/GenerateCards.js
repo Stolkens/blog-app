@@ -3,13 +3,21 @@ import { Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Row from "react-bootstrap/Row";
 import { Col } from "react-bootstrap";
-import { getPosts } from "../../../redux/postsRedux";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import dateToStr from "../../../utils/dateToStr";
+import { useParams } from "react-router-dom";
+import { getPostsByCategory } from "../../../redux/postsRedux";
 
 const GenerateCards = () => {
 
-  const posts = useSelector(getPosts)
+  const {category} = useParams();
+
+  const posts = useSelector((state) => {
+    if (category) {
+      return getPostsByCategory(state, category); 
+    }
+    return state.posts
+  });
 
   return (
     <Row xs={1} md={2} lg={3}>

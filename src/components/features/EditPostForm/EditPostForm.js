@@ -22,6 +22,7 @@ const EditPostForm = () => {
   }
 
   if (!postData) return <Navigate to="/" />;
+  
   else return (
     <PostForm action={handleSubmit} actionText='Save changes' 
     title={postData.title} 

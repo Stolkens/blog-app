@@ -18,10 +18,8 @@ const Post = () => {
   const handleClose = () =>setShow(false)
 
   const { id } = useParams();
-
+  
   const dispatch = useDispatch();
-
-
 
   const postData = useSelector(state => getPostById(state, id))
 
